@@ -9,6 +9,7 @@ module.exports = function () {
     app.set('views', './app/views');
 
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
     //carregamento de arquivo do objeto load dentro do app
     load('routes', { cwd: 'app' })

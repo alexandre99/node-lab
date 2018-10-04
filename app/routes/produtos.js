@@ -8,11 +8,22 @@ module.exports = function (app) {
             if (err) {
                 console.log(err.message);
             } else {
-                res.render('produtos/lista', { lista: results.rows });
+                devolverListaProdutos(res, results);
             }
             connection.end();
         });
     }
+
+    var devolverListaProdutos = (res, results) => {
+        res.format({
+            html: function () {
+                res.render('produtos/lista', { lista: results.rows });
+            },
+            json: function () {
+                res.json(results.rows);
+            }
+        });
+    };
 
     app.get('/produtos', listaProdutos);
 
