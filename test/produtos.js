@@ -1,6 +1,18 @@
 var express = require('../config/express')();
 var request = require('supertest')(express);
 describe('#ProdutosController', function () {
+
+    beforeEach(function (done) {
+        var conn = express.infra.connectionFactory();
+        conn.connect();
+        conn.query('delete from livros', function (err) {
+            if (!err) {
+                conn.end();
+                done();
+            }
+        });
+    });
+
     it('#listagem json', function (done) {
         request.get('/produtos')
             .set('Accept', 'application/json')

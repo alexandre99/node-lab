@@ -11,7 +11,7 @@ function createDBConnection() {
         });
     }
 
-    if (process.env.NODE_ENV == 'test') {
+    if (process.env.NODE_ENV.trim() == 'test') {
         return new Client({
             user: 'postgres',
             host: 'localhost',
