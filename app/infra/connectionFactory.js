@@ -5,7 +5,7 @@ function createDBConnection() {
         return new Client({
             user: 'postgres',
             host: 'localhost',
-            database: 'casadocodigo_nodejs',
+            database: 'casadocodigo_nodejsdd',
             password: 'regina12',
             port: 5432
         });

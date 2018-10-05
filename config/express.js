@@ -19,5 +19,20 @@ module.exports = function () {
         .then('infra')
         .into(app);
 
+    app.use(function (req, resp, next) {
+        resp.status(404).render('erros/404');
+        next();
+    });
+
+    app.use(function (error, req, resp, next) {
+        console.log('ambiente: ' + process.env.NODE_ENV);
+        if (process.env.NODE_ENV.trim() == 'production') {
+            resp.status(500).render('erros/500');
+            return;
+        }
+        next(error);
+    });
+
+
     return app;
 }
