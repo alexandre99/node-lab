@@ -1,6 +1,6 @@
 # node-lab
 API-LAB que possui serviços de adicionar, confirmar, cancelar e pesquisar pagamentos.
-Existe serviço para fazer upload de arquivo e consulta de prazo de entrega através do webservice do correio.
+Possui serviços para fazer upload de arquivo e consulta de prazo de entrega através do webservice do correio.
 
 Script para criar tabela no postgresql:
 CREATE TABLE pagamentos
